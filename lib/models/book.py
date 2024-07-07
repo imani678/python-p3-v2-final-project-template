@@ -2,16 +2,18 @@
 
 from db import conn, cursor
 
-class Book:
-    def __init__(self, id, title, author, isbn):
+
+class Book: #a table
+    def __init__(self, id, title, author, isbn):#our columns
         self.id = id
         self.title = title
         self.author = author
         self.isbn = isbn
 
-    def __repr__(self):
+    def __repr__(self):#string representation of an object
         return f"<Book {self.id} {self.title} {self.author} {self.isbn}>"
-
+    
+                 #creating methods that we use or execute on the table
     @classmethod
     def create_table(cls):
         sql = """
@@ -33,7 +35,7 @@ class Book:
         conn.commit()
         print("Books table dropped successfully")
 
-    def save(self):
+    def save(self):#rows
         sql = """
             INSERT INTO Books (title, author, isbn)
             VALUES (?, ?, ?)
@@ -84,9 +86,9 @@ class Book:
         conn.commit()
 
     def update(self, title=None, author=None, isbn=None):
-        self.title = title or self.title
-        self.author = author or self.author
-        self.isbn = isbn or self.isbn
+        self.title = title 
+        self.author = author 
+        self.isbn = isbn 
         sql = """
             UPDATE Books
             SET title = ?, author = ?, isbn = ?

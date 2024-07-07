@@ -70,7 +70,7 @@ def main():
             else:
                 print("Member not found.")
         elif choice == "9":
-            book_id = int(input("Enter the book ID: "))
+            book_id = int(input("Enter the book ID: "))#int converts string to an integer
             member_id = int(input("Enter the member ID: "))
             loan_date = input("Enter the loan date (YYYY-MM-DD): ")
             return_date = input("Enter the return date (YYYY-MM-DD): ")
